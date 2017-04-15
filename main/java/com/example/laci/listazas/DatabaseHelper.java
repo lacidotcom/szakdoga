@@ -22,7 +22,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String TAG = "DatabaseHelper";
 
-    private static final String TABLE_NAME = "nanana";
+    private static final String TABLE_NAME = "feeffef";
     private static final String COL1 = "_id";
     private static final String COL2 = "name";
     private static final String COL3 = "barcode";
@@ -40,7 +40,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String createTable = "CREATE TABLE "+ TABLE_NAME + "(_id INTEGER PRIMARY KEY AUTOINCREMENT, " + COL2 +
-                " TEXT, " + COL3 + " INTEGER, " + COL4 + " INTEGER, " + COL5 + " INTEGER, " + COL6 + " INTEGER)";
+                " TEXT, " + COL3 + " TEXT, " + COL4 + " INTEGER, " + COL5 + " INTEGER, " + COL6 + " INTEGER)";
         db.execSQL(createTable);
     }
 
@@ -50,7 +50,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean addData(String item, int entry_vonalK, int entry_darab,int entry_darab_ar){
+    public boolean addData(String item, String entry_vonalK, int entry_darab,int entry_darab_ar){
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();

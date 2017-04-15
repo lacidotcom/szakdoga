@@ -59,20 +59,25 @@
         android:layout_alignParentStart="true">
 
         <Button
-            android:layout_marginLeft="70dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnAdd"
-            android:text="@string/add"
-            tools:ignore="RtlHardcoded" />
-        <Button
             android:layout_marginLeft="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btnView"
-            android:text="@string/view_data"
+            android:text="@string/lista"
             android:layout_toRightOf="@+id/btnAdd"
             tools:ignore="RtlHardcoded" />
+
+        <Button
+            android:layout_marginLeft="51dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnAdd"
+            android:text="@string/hozz_ad_add"
+            tools:ignore="RtlHardcoded"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="51dp" />
 
     </RelativeLayout>
 
@@ -90,7 +95,7 @@
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:inputType="number"
-        android:ems="10"
+        android:ems="15"
         android:layout_marginTop="12dp"
         android:id="@+id/editText_darab"
         android:layout_below="@+id/editText_vonalkod"
@@ -100,12 +105,14 @@
     <EditText
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:inputType="number"
         android:ems="10"
         android:id="@+id/editText_vonalkod"
         android:layout_alignBottom="@+id/txt_vonalkod"
         android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText" />
+        android:layout_alignStart="@+id/editText"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:inputType="numberSigned|numberDecimal" />
 
     <TextView
         android:text="@string/price"
@@ -127,5 +134,15 @@
         android:layout_alignBottom="@+id/txt_ar"
         android:layout_alignLeft="@+id/editText_darab"
         android:layout_alignStart="@+id/editText_darab" />
+
+    <Button
+        android:text="@string/vonalk_d_btn"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_barcode_scan"
+        android:layout_width="120dp"
+        android:layout_alignBaseline="@+id/txt_vonalkod"
+        android:layout_alignBottom="@+id/txt_vonalkod"
+        android:layout_toRightOf="@+id/relativeLayout1"
+        android:layout_toEndOf="@+id/relativeLayout1" />
 
 </RelativeLayout>

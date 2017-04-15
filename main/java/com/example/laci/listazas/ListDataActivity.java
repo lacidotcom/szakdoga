@@ -18,7 +18,6 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 
 /**
  * Created by Laci on 2017. 03. 29..
@@ -70,8 +69,11 @@ public class ListDataActivity extends AppCompatActivity {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                //Cursor sad =(Cursor) adapterView.getItemAtPosition(i);
+
                 String name = adapterView.getItemAtPosition(i).toString();
-                //toastMessage(name);
+                toastMessage(name);
+                name = "haha";
                 Cursor data = mDatabasHelper.getItemID(name);
                 int itemID = -1;
                 while(data.moveToFirst()){

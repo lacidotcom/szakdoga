@@ -9,4 +9,7 @@
     <string name="price">Ár</string>
     <string name="ssz_r">Összár:</string>
     <string name="hozz_ad">Hozzáad</string>
+    <string name="lista">Lista</string>
+    <string name="hozz_ad_add">Hozzáad</string>
+    <string name="vonalk_d_btn">Vonalkód</string>
 </resources>
