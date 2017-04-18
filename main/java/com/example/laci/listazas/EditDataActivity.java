@@ -18,12 +18,12 @@ public class EditDataActivity extends AppCompatActivity {
     private static final String TAG = "EditDataActivity";
 
     private Button btnSave,btnDelete;
-    private EditText editable_item;
+    private EditText name, barcode, piece, price;
 
     DatabaseHelper mDatabaseHelper;
 
-    private String selectedName;
-    private int selectedID;
+    private String selectedName,selectedBarcode;
+    private int selectedID, selectedPiece, selectedPrice;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,25 +31,39 @@ public class EditDataActivity extends AppCompatActivity {
         setContentView(R.layout.edit_data_layout);
         btnSave = (Button) findViewById(R.id.btnSave);
         btnDelete = (Button) findViewById(R.id.btnDelete);
-        editable_item = (EditText) findViewById(R.id.editable_item);
+        name = (EditText) findViewById(R.id.edit_eT_name);
+        barcode = (EditText) findViewById(R.id.edit_eT_barcode);
+        piece = (EditText) findViewById(R.id.edit_eT_piece);
+        price = (EditText) findViewById(R.id.edit_eT_price);
         mDatabaseHelper = new DatabaseHelper(this);
 
         Intent receivedIntent = getIntent();
 
         selectedID = receivedIntent.getIntExtra("id",-1);
-
         selectedName = receivedIntent.getStringExtra("name");
+        selectedBarcode = receivedIntent.getStringExtra("barcode");
+        selectedPiece = receivedIntent.getIntExtra("piece",0);
+        selectedPrice = receivedIntent.getIntExtra("price",0);
 
-        editable_item.setText(selectedName);
+        name.setText(selectedName);
+        barcode.setText(selectedBarcode);
+        piece.setText(String.valueOf(selectedPiece));
+        price.setText(String.valueOf(selectedPrice));
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String item = editable_item.getText().toString();
+                String item = name.getText().toString();
+                String bc = barcode.getText().toString();
+                int darab = Integer.parseInt(piece.getText().toString());
+                int ar = Integer.parseInt(price.getText().toString());
                 if(!item.equals("")){
-                    mDatabaseHelper.updateName(item,selectedID,selectedName);
+                    mDatabaseHelper.updateDB(item,selectedID,selectedName,bc,darab,ar);
+                    toastMessage("Sikeres szerkesztés");
+                    Intent intent = new Intent(EditDataActivity.this, ListDataActivity.class);
+                    startActivity(intent);
                 }else{
-                    toastMessage("you must enter a name");
+                    toastMessage("Meg kell adnod egy nevet!");
                 }
             }
         });
@@ -58,8 +72,13 @@ public class EditDataActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mDatabaseHelper.deleteName(selectedID,selectedName);
-                editable_item.setText("");
-                toastMessage("removed from database");
+                name.setText("");
+                barcode.setText("");
+                piece.setText("");
+                price.setText("");
+                toastMessage("Törölve a listából");
+                Intent intent = new Intent(EditDataActivity.this, ListDataActivity.class);
+                startActivity(intent);
             }
         });
     }

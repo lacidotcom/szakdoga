@@ -103,9 +103,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return data;
     }
 
-    public void updateName(String newName, int id, String oldName){
+    public void updateDB(String newName, int id, String oldName, String barcode, int piece, int price){
         SQLiteDatabase db = this.getWritableDatabase();
-        String query = "UPDATE " + TABLE_NAME + " SET " + COL2 + " = '" + newName + "' WHERE " + COL1 + " = '" + id + "'" + " AND " + COL2 + " = '"+oldName+"'";
+        String query = "UPDATE " + TABLE_NAME + " SET " + COL2 + " = '" + newName + "', " + COL3 +
+                " = '" + barcode + "', " + COL4 + " = " + piece + ", " + COL5 + " = " + price +
+                " WHERE " + COL1 + " = '" + id + "'" + " AND " + COL2 + " = '"+oldName+"'";
         db.execSQL(query);
     }
 

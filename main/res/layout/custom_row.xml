@@ -4,7 +4,8 @@
     android:orientation="horizontal" android:layout_width="match_parent"
     android:weightSum="1"
     android:layout_height="80dp"
-    android:baselineAligned="false">
+    android:baselineAligned="false"
+    android:id="@+id/custom_layout">
 
     <TextView
         android:layout_width="wrap_content"
@@ -21,7 +22,8 @@
         android:layout_above="@+id/tv_osszar"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="382dp">
+        android:layout_marginBottom="382dp"
+        android:id="@+id/custom_sub_layout">
 
         <TextView
             android:layout_height="wrap_content"
