@@ -92,17 +92,13 @@ public class ListDataActivity extends AppCompatActivity {
                 Cursor data = mDatabasHelper.getItemID(name);
                 int itemID = -1;
                 String barcode = "";
-                int piece = 0;
+                float piece = 0;
                 int price = 0;
-                Log.d(TAG,"itt");
                 while (data.moveToNext()) {
                     itemID = data.getInt(0);
-                    Log.d(TAG,"att");
                     barcode = ((TextView)view.findViewById(R.id.tv_barcode)).getText().toString();
-                    //Log.d(TAG,barcode);
-                    piece = Integer.parseInt(((TextView)view.findViewById(R.id.tv_piece)).getText().toString());
-                    //Log.d(TAG,"add");
-                    price = Integer.parseInt(((TextView)view.findViewById(R.id.tv_ar)).getText().toString())/piece;
+                    piece = Float.parseFloat(((TextView)view.findViewById(R.id.tv_piece)).getText().toString());
+                    price =(int)(Float.parseFloat(((TextView)view.findViewById(R.id.tv_ar)).getText().toString())/piece);
                 }
                 if (itemID > -1) {
                     Intent editScreenIntent = new Intent(ListDataActivity.this, EditDataActivity.class);

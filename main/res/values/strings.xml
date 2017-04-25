@@ -18,4 +18,8 @@
     <string name="save">SAVE</string>
     <string name="vonalk_d_edit">Vonalkód</string>
     <string name="r_edit">Ár</string>
+    <string name="t_rl_s">TÖRLÉS</string>
+    <string name="ment_s">MENTÉS</string>
+    <string name="egys_g_r_add">Egységár</string>
+    <string name="egys_g_r_edit">Egységár</string>
 </resources>

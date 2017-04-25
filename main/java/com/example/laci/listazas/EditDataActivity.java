@@ -23,7 +23,9 @@ public class EditDataActivity extends AppCompatActivity {
     DatabaseHelper mDatabaseHelper;
 
     private String selectedName,selectedBarcode;
-    private int selectedID, selectedPiece, selectedPrice;
+    private int selectedID;
+    private float selectedPiece;
+    private int selectedPrice;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -42,7 +44,7 @@ public class EditDataActivity extends AppCompatActivity {
         selectedID = receivedIntent.getIntExtra("id",-1);
         selectedName = receivedIntent.getStringExtra("name");
         selectedBarcode = receivedIntent.getStringExtra("barcode");
-        selectedPiece = receivedIntent.getIntExtra("piece",0);
+        selectedPiece = receivedIntent.getFloatExtra("piece",0);
         selectedPrice = receivedIntent.getIntExtra("price",0);
 
         name.setText(selectedName);
@@ -55,8 +57,8 @@ public class EditDataActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String item = name.getText().toString();
                 String bc = barcode.getText().toString();
-                int darab = Integer.parseInt(piece.getText().toString());
-                int ar = Integer.parseInt(price.getText().toString());
+                float darab = Float.parseFloat(piece.getText().toString());
+                int ar = (int)Float.parseFloat(price.getText().toString());
                 if(!item.equals("")){
                     mDatabaseHelper.updateDB(item,selectedID,selectedName,bc,darab,ar);
                     toastMessage("Sikeres szerkesztés");

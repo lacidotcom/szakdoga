@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -8,7 +9,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/delete"
+        android:text="@string/t_rl_s"
         android:id="@+id/btnDelete"
         android:layout_marginBottom="23dp"
         android:layout_marginRight="47dp"
@@ -20,7 +21,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/save"
+        android:text="@string/ment_s"
         android:id="@+id/btnSave"
         android:layout_marginRight="36dp"
         android:layout_marginEnd="36dp"
@@ -39,7 +40,8 @@
         android:layout_marginLeft="31dp"
         android:layout_marginStart="31dp"
         android:id="@+id/edit_tv_name"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        tools:ignore="RelativeOverlap" />
 
     <EditText
         android:layout_width="200dp"
@@ -61,16 +63,6 @@
         android:layout_below="@+id/edit_tv_name"
         android:layout_alignLeft="@+id/edit_tv_name"
         android:layout_alignStart="@+id/edit_tv_name" />
-
-    <EditText
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/edit_eT_price"
-        android:layout_below="@+id/edit_eT_piece"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
 
     <TextView
         android:text="@string/darab_edit"
@@ -95,7 +87,7 @@
         android:layout_alignParentEnd="true" />
 
     <TextView
-        android:text="@string/r_edit"
+        android:text="@string/egys_g_r_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/edit_tv_price"
@@ -111,6 +103,16 @@
         android:ems="10"
         android:id="@+id/edit_eT_piece"
         android:layout_below="@+id/edit_eT_barcode"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/edit_eT_price"
+        android:layout_below="@+id/edit_eT_piece"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 

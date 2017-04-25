@@ -51,13 +51,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String newEntry = editText.getText().toString();
                 String entry_vonalK = eT_barcode.getText().toString();
-                int entry_darab = 0;
+                float entry_darab = 0;
                 if("".equals(eT_piece.getText().toString())){
                     entry_darab = 0;
                 }else{
-                    entry_darab = Integer.parseInt(eT_piece.getText().toString());
+                    entry_darab = Float.parseFloat(eT_piece.getText().toString());
                 }
-                int entry_darab_ar = 0;
+                float entry_darab_ar = 0;
                 if("".equals(eT_price.getText().toString())){
                     entry_darab_ar = 0;
                 }else{
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void AddData(String newEntry, String entry_vonalK, int entry_darab,int entry_darab_ar){
+    public void AddData(String newEntry, String entry_vonalK, float entry_darab, float entry_darab_ar){
         boolean insertData = mDatabaseHelper.addData(newEntry,entry_vonalK,entry_darab,entry_darab_ar);
         if(insertData){
             Toast.makeText(MainActivity.this,"Sikeresen hozzaadva",Toast.LENGTH_LONG).show();

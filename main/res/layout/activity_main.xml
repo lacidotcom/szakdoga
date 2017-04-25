@@ -94,13 +94,13 @@
     <EditText
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:inputType="number"
         android:ems="15"
         android:layout_marginTop="12dp"
         android:id="@+id/editText_darab"
         android:layout_below="@+id/editText_vonalkod"
         android:layout_alignLeft="@+id/editText_vonalkod"
-        android:layout_alignStart="@+id/editText_vonalkod" />
+        android:layout_alignStart="@+id/editText_vonalkod"
+        android:inputType="numberDecimal" />
 
     <EditText
         android:layout_width="200dp"
@@ -115,7 +115,7 @@
         android:inputType="numberSigned|numberDecimal" />
 
     <TextView
-        android:text="@string/price"
+        android:text="@string/egys_g_r_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="38dp"

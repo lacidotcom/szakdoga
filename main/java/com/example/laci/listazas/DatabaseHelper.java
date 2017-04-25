@@ -22,7 +22,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String TAG = "DatabaseHelper";
 
-    private static final String TABLE_NAME = "feeffef";
+    private static final String TABLE_NAME = "elso_adatbazis";
     private static final String COL1 = "_id";
     private static final String COL2 = "name";
     private static final String COL3 = "barcode";
@@ -40,7 +40,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String createTable = "CREATE TABLE "+ TABLE_NAME + "(_id INTEGER PRIMARY KEY AUTOINCREMENT, " + COL2 +
-                " TEXT, " + COL3 + " TEXT, " + COL4 + " INTEGER, " + COL5 + " INTEGER, " + COL6 + " INTEGER)";
+                " TEXT, " + COL3 + " TEXT, " + COL4 + " REAL, " + COL5 + " INTEGER, " + COL6 + " INTEGER)";
         db.execSQL(createTable);
     }
 
@@ -50,7 +50,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean addData(String item, String entry_vonalK, int entry_darab,int entry_darab_ar){
+    public boolean addData(String item, String entry_vonalK, float entry_darab, float entry_darab_ar){
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
@@ -103,7 +103,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return data;
     }
 
-    public void updateDB(String newName, int id, String oldName, String barcode, int piece, int price){
+    public void updateDB(String newName, int id, String oldName, String barcode, float piece, int price){
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "UPDATE " + TABLE_NAME + " SET " + COL2 + " = '" + newName + "', " + COL3 +
                 " = '" + barcode + "', " + COL4 + " = " + piece + ", " + COL5 + " = " + price +
